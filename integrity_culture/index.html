@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>廉洁文化网</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #1a5fb4;
+            --secondary-color: #f8f9fa;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(rgba(200, 0, 0, 0.3), rgba(200, 0, 0, 0.3)), url('../img/beijing.jpg');
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 0;
+            height: 400px;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            margin: 0;
+        }
+
+        .header .display-4 {
+            font-size: 3rem;
+            font-weight: bold;
+            font-family: "STXingkai", "KaiTi", "SimKai", cursive;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 15px;
+        }
+
+        .header .lead {
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: "STXingkai", "KaiTi", "SimKai", cursive;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .header .navbar {
+            background: rgba(139, 0, 0, 0.9);
+            padding: 10px 0;
+        }
+
+        .header .navbar-nav {
+            gap: 15px;
+        }
+
+        .header .nav-link {
+            color: white !important;
+            text-align: center;
+            padding: 5px !important;
+        }
+
+        .header .nav-link:hover {
+            opacity: 0.8;
+        }
+
+        .nav-divider {
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            padding: 0 5px;
+        }
+
+        .header .nav-link img {
+            margin-bottom: 5px;
+        }
+
+        .nav-main {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-item {
+            padding: 0 20px;
+        }
+
+        .nav-link {
+            color: #333;
+            font-weight: 600;
+            padding: 15px 0;
+            position: relative;
+        }
+
+        .nav-link::before {
+            content: "";
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            left: 50%;
+            top: -10px;
+            transform: translateX(-50%);
+            opacity: 0.7;
+        }
+
+        .nav-link[href$="news.html"]::before {
+            background-image: url('../img/news-icon.png');
+        }
+
+        .nav-link[href$="china.html"]::before {
+            background-image: url('../img/china-icon.png');
+        }
+
+        .nav-link[href$="models.html"]::before {
+            background-image: url('../img/models-icon.png');
+        }
+
+        .nav-link[href$="anti-corruption.html"]::before {
+            background-image: url('../img/anti-icon.png');
+        }
+
+        .nav-link[href$="videos.html"]::before {
+            background-image: url('../img/video-icon.png');
+        }
+
+        .nav-link.active {
+            color: #8b0000;
+            border-bottom: 2px solid #8b0000;
+        }
+
+        .section-title {
+            color: #8b0000;
+            padding-left: 10px;
+            margin: 40px 0 25px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title i {
+            margin-right: 5px;
+        }
+
+        .section-divider {
+            border-top: 1px solid #e0e0e0;
+            margin: 30px 0;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(139, 0, 0, 0.1);
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(139, 0, 0, 0.15);
+        }
+
+        .news-card-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(to bottom, white, #fff9f9);
+            line-height: 1.6;
+        }
+
+        .news-card-body p {
+            margin-bottom: 15px;
+        }
+
+        .news-card-body h5 {
+            margin-bottom: 15px;
+            min-height: 3em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .news-card-body.text-center h5 {
+            text-align: center;
+            justify-content: center;
+        }
+
+        .news-card-body .btn {
+            margin-top: auto;
+            align-self: center;
+            background-color: #8b0000;
+            border: none;
+            border-radius: 20px;
+            padding: 5px 20px;
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .news-card-body .btn:hover {
+            background-color: #6b0000;
+            transform: scale(1.05);
+            color: white;
+        }
+
+        .news-card-body .btn-outline-primary {
+            border-color: #8b0000;
+            color: white;
+            background-color: #8b0000;
+        }
+
+        .news-card-body .btn-outline-primary:hover {
+            background-color: #6b0000;
+            color: white;
+        }
+
+        .news-card-body .text-muted {
+            text-align: center;
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 合并后的头部区域 -->
+    <div class="header">
+        <div class="container position-relative" style="height: 400px;">
+            <!-- 中间标语 -->
+            <div class="position-absolute top-50 start-50 translate-middle text-center">
+                <h2 class="display-4">弘扬廉洁文化 建设清廉社会</h2>
+                <p class="lead">传承清廉美德，营造风清气正的社会环境</p>
+            </div>
+
+            <!-- 底部导航图标 -->
+            <nav class="navbar navbar-expand-lg position-absolute bottom-0 start-0 end-0">
+                <div class="container justify-content-center">
+                    <ul class="navbar-nav flex-row">
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-white" href="index.html">
+                                <div>首页</div>
+                            </a>
+                        </li>
+                        <li class="nav-divider mx-1">
+                            <span class="text-white">|</span>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-white" href="news.html">
+                                <div>清廉头条</div>
+                            </a>
+                        </li>
+                        <li class="nav-divider mx-1">
+                            <span class="text-white">|</span>
+
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-white" href="index.html">
+                                <div>清廉山东</div>
+                            </a>
+                        </li>
+                        <li class="nav-divider mx-1">
+                            <span class="text-white">|</span>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-white" href="models.html">
+                                <div>清廉典范</div>
+                            </a>
+                        </li>
+                        <li class="nav-divider mx-1">
+                            <span class="text-white">|</span>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-white" href="anti-corruption.html">
+                                <div>反腐快讯</div>
+                            </a>
+                        </li>
+                        <li class="nav-divider mx-1">
+                            <span class="text-white">|</span>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-white" href="index.html">
+                                <div>清廉视频</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- 主要内容 -->
+    <div class="container mt-4">
+        <!-- 清廉头条 -->
+        <h3 class="section-title">
+            <i class="bi bi-newspaper"></i> 清廉头条
+        </h3>
+        <div class="section-divider"></div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="news-card">
+                    <div class="news-card-body">
+                        <h5>贯彻落实中央纪委四次全会精神 | 强化案件评查推动实战帮带 持续提升基层执纪执法质效</h5>
+                        <a href="news-detail3.html" class="btn btn-sm btn-primary">查看详情</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="news-card">
+                    <div class="news-card-body">
+                        <h5>深度关注 | 山东纪检监察机关以有利监督推动职能部门履职尽责 拧紧燃气安全"责任阀" </h5>
+                        <a href="news-detail1.html" class="btn btn-sm btn-primary">查看详情</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="news-card">
+                    <div class="news-card-body">
+                        <h5>大众日报"党风廉政"专版 | 岱青海蓝 廉铸初心——第二届"青未了"杯廉洁文化作品创作大赛侧记</h5>
+                        <a href="news-detail2.html" class="btn btn-sm btn-primary">查看详情</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-3">
+            <a href="news.html" class="btn btn-primary">更多清廉头条</a>
+        </div>
+
+        <!-- 清廉山东 -->
+        <h3 class="section-title">
+            <i class="bi bi-geo-alt"></i>清廉山东
+        </h3>
+
+        <div class="section-divider"></div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="news-card" style="height: 400px; position: relative;">
+                    <img src="../img/ditu.jpg" alt="山东地图"
+                        style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+                    <div class="city-buttons" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                        <a href="jinan.html" class="btn btn-sm city-btn"
+                            style="position: absolute; top: 38.5%; left: 31.95%; background: transparent; border: none; color: transparent; width: 40px; height: 40px; z-index: 100; cursor: pointer; display: block;">
+                        </a>
+                        <a href="qingdao.html" class="btn btn-sm city-btn"
+                            style="position: absolute; top: 37%; left: 65.3%; background: transparent; border: none; color: transparent; width: 20px; height: 20px; z-index: 100; cursor: pointer; display: block;">
+                        </a>
+                        <a href="zibo.html" class="btn btn-sm city-btn"
+                            style="position: absolute; top: 40.5%; left: 40.5%; background: transparent; border: none; color: transparent; width: 25px; height: 25px; z-index: 100; cursor: pointer; display: block;">
+                        </a>
+                        <a href="dezhou.html" class="btn btn-sm city-btn"
+                            style="position: absolute; top: 24%; left: 25%; background: transparent; border: none; color: transparent; width: 25px; height: 25px; z-index: 100; cursor: pointer; display: block;">
+                        </a>
+                        <a href="liaocheng.html" class="btn btn-sm city-btn"
+                            style="position: absolute; top: 43%; left: 17.2%; background: transparent; border: none; color: transparent; width: 25px; height: 25px; z-index: 100; cursor: pointer; display: block;">
+                        </a>
+                        <a href="" class="btn btn-sm city-btn"
+                            style="position: absolute; top: 15.5%; left: 38%; background: transparent; border: none; color: transparent; width: 25px; height: 25px; z-index: 100; cursor: pointer; display: block;">
+                        </a>
+                        <a href="dongying.html" class="btn btn-sm city-btn"
+                            style="position: absolute; top: 15%; left: 47.4%; background: transparent; border: none; color: transparent; width: 25px; height: 25px; z-index: 100; cursor: pointer; display: block;">
+                        </a>
+                        <a href="taian.html" class="btn btn-sm city-btn"
+                            style="position: absolute; top: 54.1%; left: 31.2%; background: transparent; border: none; color: transparent; width: 25px; height: 25px; z-index: 100; cursor: pointer; display: block;">
+                        </a>
+                        <a href="" class="btn btn-sm city-btn"
+                            style="position: absolute; top: 70%; left: 26.24%; background: transparent; border: none; color: transparent; width: 25px; height: 25px; z-index: 100; cursor: pointer; display: block;">
+                        </a>
+                        <a href="heze.html" class="btn btn-sm city-btn"
+                            style="position: absolute; top: 75.8%; left: 13.9%; background: transparent; border: none; color: transparent; width: 25px; height: 25px; z-index: 100; cursor: pointer; display: block;">
+                        </a>
+                        <a href="zaozhuang.html" class="btn btn-sm city-btn"
+                            style="position: absolute; top: 81.5%; left: 33.9%; background: transparent; border: none; color: transparent; width: 25px; height: 25px; z-index: 100; cursor: pointer; display: block;">
+                        </a>
+                        <a href="linyi.html" class="btn btn-sm city-btn"
+                            style="position: absolute; top: 77.8%; left: 43.9%; background: transparent; border: none; color: transparent; width: 25px; height: 25px; z-index: 100; cursor: pointer; display: block;">
+                        </a>
+                        <a href="" class="btn btn-sm city-btn"
+                            style="position: absolute; top: 39.5%; left: 51.7%; background: transparent; border: none; color: transparent; width: 25px; height: 25px; z-index: 100; cursor: pointer; display: block;">
+                        </a>
+                        <a href="rizhao.html" class="btn btn-sm city-btn"
+                            style="position: absolute; top: 66.5%; left: 53.9%; background: transparent; border: none; color: transparent; width: 25px; height: 25px; z-index: 100; cursor: pointer; display: block;">
+                        </a>
+                        <a href="" class="btn btn-sm city-btn"
+                            style="position: absolute; top: 21.1%; left: 70.7%; background: transparent; border: none; color: transparent; width: 25px; height: 25px; z-index: 100; cursor: pointer; display: block;">
+                        </a>
+                        <a href="weihai.html" class="btn btn-sm city-btn"
+                            style="position: absolute; top: 27%; left: 86.1%; background: transparent; border: none; color: transparent; width: 25px; height: 25px; z-index: 100; cursor: pointer; display: block;">
+                        </a>
+                        <!-- Add more city buttons as needed -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="news-card" style="height: 400px;">
+                    <div class="news-card-body" id="city-content">
+                        <h5 class="text-center">山东省廉洁文化地图</h5>
+                        <p id="city-description" style="text-indent: 2em; text-align: justify;">
+                            山东人文沃土深厚，以齐鲁文化、泰山文化、黄河文化、运河文化等为代表的优秀传统文化，与以沂蒙精神为代表的红色文化，以焦裕禄精神、孔繁森精神等为代表的社会主义先进文化，共同构成文化山东的重要标识。山东锚定“走在前、开新局”，坚持创造性转化、创新性发展，围绕持续擦亮“清廉山东”廉洁文化品牌，以山东廉洁文化地图为抓手，构建体现山东特色、统一规范的建设体系，实现廉洁教育资源数字化，展现山东廉洁文化建设丰硕成果，让廉洁文化成为齐鲁大地最靓丽的一张名片。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Handle city button clicks - redirect to city page
+            document.addEventListener('DOMContentLoaded', function () {
+                // Set default content
+                document.getElementById('city-content').innerHTML = `
+                        <h5 class="text-center">山东省廉洁文化地图</h5>
+                        <div class="city-description" style="text-indent: 2em;">
+                           山东人文沃土深厚，以齐鲁文化、泰山文化、黄河文化、运河文化等为代表的优秀传统文化，与以沂蒙精神为代表的红色文化，以焦裕禄精神、孔繁森精神等为代表的社会主义先进文化，共同构成文化山东的重要标识。山东锚定“走在前、开新局”，坚持创造性转化、创新性发展，围绕持续擦亮“清廉山东”廉洁文化品牌，以山东廉洁文化地图为抓手，构建体现山东特色、统一规范的建设体系，实现廉洁教育资源数字化，展现山东廉洁文化建设丰硕成果，让廉洁文化成为齐鲁大地最靓丽的一张名片。
+                        </div>
+                    `;
+
+                // Add click handlers to redirect to city page
+                function setupCityButtons() {
+                    document.querySelectorAll('.city-btn').forEach(btn => {
+                        btn.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            const city = this.dataset.city;
+                            console.log('Redirecting to:', city + '.html');
+                            window.location.href = city + '.html';
+                        });
+                    });
+                }
+
+                // Ensure DOM is fully loaded
+                if (document.readyState === 'complete') {
+                    setupCityButtons();
+                } else {
+                    window.addEventListener('load', setupCityButtons);
+                    document.addEventListener('DOMContentLoaded', setupCityButtons);
+                }
+            });
+        </script>
+
+        <!-- City Modal removed -->
+        <div class="text-center mt-3">
+        </div>
+        <div class="text-center mb-3" style="color: #8b0000; font-weight: 500; padding: 8px 12px; 
+             background-color: rgba(139, 0, 0, 0.05); border-radius: 4px; transition: all 0.3s ease;">
+            <i class="bi bi-cursor-fill" style="margin-right: 6px;"></i>
+            点击地图中城市可查看对应城市廉洁文化地图
+        </div>
+        <!-- 清廉典范 -->
+        <h3 class="section-title">
+            <i class="bi bi-award"></i>清廉典范
+        </h3>
+        <div class="section-divider"></div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="news-card">
+                    <img src="../img/baozheng-detail.jpg" alt="包拯" style="width:100%;height:180px;object-fit:cover">
+                    <div class="news-card-body text-center">
+                        <h5>包拯</h5>
+                        <p>北宋著名清官</p>
+                        <a href="baozheng.html" class="btn btn-sm btn-outline-primary">查看详情</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="news-card">
+                    <img src="../img/hairui-detail.jpg" alt="海瑞" style="width:100%;height:180px;object-fit:cover">
+                    <div class="news-card-body text-center">
+                        <h5>海瑞</h5>
+                        <p>明朝著名清官</p>
+                        <a href="hairui.html" class="btn btn-sm btn-outline-primary">查看详情</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="news-card">
+                    <img src="../img/jiaoyulu-detail.jpg" alt="焦裕禄" style="width:100%;height:180px;object-fit:cover">
+                    <div class="news-card-body text-center">
+                        <h5>焦裕禄</h5>
+                        <p>党的好干部</p>
+                        <a href="jiaoyulu.html" class="btn btn-sm btn-outline-primary">查看详情</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="news-card">
+                    <img src="../img/renchangxia-detail.jpg" alt="任长霞" style="width:100%;height:180px;object-fit:cover">
+                    <div class="news-card-body text-center">
+                        <h5>任长霞</h5>
+                        <p>警界女神警</p>
+                        <a href="renchangxia.html" class="btn btn-sm btn-outline-primary">查看详情</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-3">
+            <a href="models.html" class="btn btn-primary">更多典范</a>
+        </div>
+
+        <!-- 反腐快讯 -->
+        <h3 class="section-title">
+            <i class="bi bi-megaphone"></i>反腐快讯
+        </h3>
+        <div class="section-divider"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="news-card">
+                    <div class="news-card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <h5 class="mb-0">原邹城市技工学校党支部书记、五级职员田慎华严重违纪违法被开除党籍</h5>
+                        </div>
+                        <p class="mb-0">2025-07-23</p>
+                        <p>据济宁市纪委监委消息：经济宁市委批准，济宁市纪委监委对原邹城市技工学校党支部书记、五级职员田慎华严重违纪违法问题进行了立案审查调查...</p>
+                        <a href="fanfu1.html" class="btn btn-sm btn-outline-primary">查看详情</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-3">
+            <a href="anti-corruption.html" class="btn btn-primary">更多反腐快讯</a>
+        </div>
+
+        <!-- 清廉视频 -->
+        <h3 class="section-title">
+            <i class="bi bi-play-circle"></i>清廉视频
+        </h3>
+        <div class="section-divider"></div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="news-card">
+                    <img src="../img/chenbin.jpg" alt="廉洁历史人物--陈瑸">
+                    <div class="news-card-body">
+                        <h5>廉洁历史人物--陈瑸</h5>
+                        <p class="text-muted">时长：2:21</p>
+                        <a href="../img/chenbin.mp4" class="btn btn-sm btn-primary">观看视频</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="news-card">
+                    <img src="../img/changzheng.jpg" alt="遥望长征">
+                    <div class="news-card-body">
+                        <h5>遥望长征</h5>
+                        <p class="text-muted">时长：5:34</p>
+                        <a href="../img/changzheng.mp4" class="btn btn-sm btn-primary">观看视频</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="news-card">
+                    <img src="../img/zhengshiyuan.jpg" alt="廉洁历史人物--郑士元">
+                    <div class="news-card-body">
+                        <h5>廉洁历史人物--郑士元</h5>
+                        <p class="text-muted">时长：2:37</p>
+                        <a href="../img/zhengshiyuan.mp4" class="btn btn-sm btn-primary">观看视频</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-3">
+        </div>
+        <!-- 页脚 -->
+        <footer class="footer" style="background-color: #8b0000;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center text-white py-3">
+                        <p class="small">免责声明：本网站内容仅供参考，不构成任何法律建议</p>
+                        <p class="small">青岛大学计算机科学技术学院“筑梦廉洁路，薪火基层行”社会实践团</p>
+                    </div>
+                </div>
+            </div>
+        </footer>

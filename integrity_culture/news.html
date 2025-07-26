@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>清廉头条 - 廉洁文化网</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a5fb4;
+            --secondary-color: #f8f9fa;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(rgba(200, 0, 0, 0.3), rgba(200, 0, 0, 0.3)), url('../img/beijing.jpg');
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 0;
+            height: 400px;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            margin: 0;
+        }
+
+        .header .display-4 {
+            font-size: 3rem;
+            font-weight: bold;
+            font-family: "STXingkai", "KaiTi", "SimKai", cursive;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 15px;
+        }
+
+        .header .lead {
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: "STXingkai", "KaiTi", "SimKai", cursive;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .header .navbar {
+            background: rgba(139, 0, 0, 0.9);
+            padding: 10px 0;
+        }
+
+        .header .navbar-nav {
+            gap: 15px;
+        }
+
+        .header .nav-link {
+            color: white !important;
+            text-align: center;
+            padding: 5px !important;
+        }
+
+        .header .nav-link:hover {
+            opacity: 0.8;
+        }
+
+        .nav-divider {
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            padding: 0 5px;
+        }
+
+        .header .nav-link img {
+            margin-bottom: 5px;
+        }
+
+        .nav-main {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-item {
+            padding: 0 20px;
+        }
+
+        .nav-link {
+            color: #333;
+            font-weight: 600;
+            padding: 15px 0;
+            position: relative;
+        }
+
+        .nav-link::before {
+            content: "";
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            left: 50%;
+            top: -10px;
+            transform: translateX(-50%);
+            opacity: 0.7;
+        }
+
+        .nav-link[href$="news.html"]::before {
+            background-image: url('../img/news-icon.png');
+        }
+
+        .nav-link[href$="china.html"]::before {
+            background-image: url('../img/china-icon.png');
+        }
+
+        .nav-link[href$="models.html"]::before {
+            background-image: url('../img/models-icon.png');
+        }
+
+        .nav-link[href$="anti-corruption.html"]::before {
+            background-image: url('../img/anti-icon.png');
+        }
+
+        .nav-link[href$="videos.html"]::before {
+            background-image: url('../img/video-icon.png');
+        }
+
+        .nav-link.active {
+            color: #8b0000;
+            border-bottom: 2px solid #8b0000;
+        }
+
+        .news-container {
+            margin-top: 20px;
+        }
+
+        .news-left {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .news-category {
+            list-style: none;
+            padding: 0;
+        }
+
+        .news-category li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .news-category li a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .news-category li a:hover {
+            color: #1a5fb4;
+        }
+
+        .news-category li.active a {
+            color: #1a5fb4;
+            font-weight: bold;
+        }
+
+        .news-item {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .news-item-img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .news-date {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .policy-card {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+            position: relative;
+        }
+
+        .policy-title {
+            color: #1a5fb4;
+        }
+
+        .policy-card:not(:last-child)::after {
+            content: "";
+            display: block;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #1a5fb4, transparent);
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            right: 10%;
+        }
+
+        .hot-news {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 合并后的头部区域 -->
+    <div class="header">
+        <div class="container position-relative" style="height: 400px;">
+            <!-- 中间标语 -->
+            <div class="position-absolute top-50 start-50 translate-middle text-center">
+                <h2 class="display-4">弘扬廉洁文化 建设清廉社会</h2>
+                <p class="lead">传承清廉美德，营造风清气正的社会环境</p>
+            </div>
+
+            <!-- 底部导航图标 -->
+            <nav class="navbar navbar-expand-lg position-absolute bottom-0 start-0 end-0">
+                <div class="container justify-content-center">
+                    <ul class="navbar-nav flex-row">
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-white" href="index.html">
+                                <div>首页</div>
+                            </a>
+                        </li>
+                        <li class="nav-divider mx-1">
+                            <span class="text-white">|</span>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-white" href="news.html">
+                                <div>清廉头条</div>
+                            </a>
+                        </li>
+                        <li class="nav-divider mx-1">
+                            <span class="text-white">|</span>
+
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-white" href="index.html">
+                                <div>清廉山东</div>
+                            </a>
+                        </li>
+                        <li class="nav-divider mx-1">
+                            <span class="text-white">|</span>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-white" href="models.html">
+                                <div>清廉典范</div>
+                            </a>
+                        </li>
+                        <li class="nav-divider mx-1">
+                            <span class="text-white">|</span>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-white" href="anti-corruption.html">
+                                <div>反腐快讯</div>
+                            </a>
+                        </li>
+                        <li class="nav-divider mx-1">
+                            <span class="text-white">|</span>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-white" href="index.html">
+                                <div>清廉视频</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+
+    <!-- 主要内容 -->
+    <div class="container my-5">
+        <div class="china-container">
+            <ul class="nav china-tab">
+                <li class="nav-item">
+            </ul>
+
+            <div class="china-content">
+                <div class="policy-card">
+                    <h3 class="policy-title">贯彻落实中央纪委四次全会精神 | 强化案件评查推动实战帮带 持续提升基层执纪执法质效</h3>
+                    <p class="news-date">2025-07-25</p>
+                    <a href="news-detail3.html" class="btn btn-sm btn-outline-primary">查看详情</a>
+                </div>
+                <div class="policy-card">
+                    <h3 class="policy-title">铭记历史 缅怀先烈·精神丰碑 精神力量穿越时空</h3>
+                    <p class="news-date">2025-07-25</p>
+                    <a href="news-detail4.html" class="btn btn-sm btn-outline-primary">查看详情</a>
+                </div>
+                <div class="policy-card">
+                    <h3 class="policy-title">德州：聚焦优化营商环境 靶向发力助企安心发展</h3>
+                    <p class="news-date">2025-07-25</p>
+                    <a href="news-detail5.html" class="btn btn-sm btn-outline-primary">查看详情</a>
+                </div>
+                <div class="policy-card">
+                    <h3 class="policy-title">滨州：压实巡察整改责任 助力农村人居环境改善</h3>
+                    <p class="news-date">2025-07-24</p>
+                    <a href="news-detail6.html" class="btn btn-sm btn-outline-primary">查看详情</a>
+                </div>
+                <div class="policy-card">
+                    <h3 class="policy-title">深度关注 | 山东纪检监察机关以有利监督推动职能部门履职尽责 拧紧燃气安全“责任阀”</h3>
+                    <p class="news-date">2025-07-24</p>
+                    <a href="news-detail1.html" class="btn btn-sm btn-outline-primary">查看详情</a>
+                </div>
+                <div class="policy-card">
+                    <h3 class="policy-title">大众日报“党风廉政”专版 | 岱青海蓝 廉铸初心——第二届“青未了”杯廉洁文化作品创作大赛侧记</h3>
+                    <p class="news-date">2025-07-24</p>
+                    <a href="news-detail2.html" class="btn btn-sm btn-outline-primary">查看详情</a>
+                </div>
+                <div class="policy-card">
+                    <h3 class="policy-title">济南：分层分类进行警示教育 以案为鉴敲响警钟</h3>
+                    <p class="news-date">2025-07-23</p>
+                    <a href="news-detail7.html" class="btn btn-sm btn-outline-primary">查看详情</a>
+                </div>
+                <div class="policy-card">
+                    <h3 class="policy-title">青岛：严查徇私舞弊、插手干预行为 纠治招投标领域顽疾</h3>
+                    <p class="news-date">2025-07-19</p>
+                    <a href="news-detail8.html" class="btn btn-sm btn-outline-primary">查看详情</a>
+                </div>
+                <!-- 分页 -->
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center mt-4">
+                        <li class="page-item disabled mx-1">
+                            <a class="page-link" href="#" tabindex="-1">上一页</a>
+                        </li>
+                        <li class="page-item active mx-1"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item mx-1"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item mx-1"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item mx-1">
+                            <a class="page-link" href="#">下一页</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <!-- 同首页页脚 -->
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
