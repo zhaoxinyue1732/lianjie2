@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>反腐快讯 - 廉洁文化网</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a5fb4;
+            --secondary-color: #f8f9fa;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(rgba(200, 0, 0, 0.3), rgba(200, 0, 0, 0.3)), url('../img/beijing.jpg');
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 0;
+            height: 400px;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            margin: 0;
+        }
+
+        .header .display-4 {
+            font-size: 3rem;
+            font-weight: bold;
+            font-family: "STXingkai", "KaiTi", "SimKai", cursive;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 15px;
+        }
+
+        .header .lead {
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: "STXingkai", "KaiTi", "SimKai", cursive;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .header .navbar {
+            background: rgba(139, 0, 0, 0.9);
+            padding: 10px 0;
+        }
+
+        .header .navbar-nav {
+            gap: 15px;
+        }
+
+        .header .nav-link {
+            color: white !important;
+            text-align: center;
+            padding: 5px !important;
+        }
+
+        .header .nav-link:hover {
+            opacity: 0.8;
+        }
+
+        .nav-divider {
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            padding: 0 5px;
+        }
+
+        .header .nav-link img {
+            margin-bottom: 5px;
+        }
+
+        .nav-main {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-item {
+            padding: 0 20px;
+        }
+
+        .nav-link {
+            color: #333;
+            font-weight: 600;
+            padding: 15px 0;
+            position: relative;
+        }
+
+        .nav-link::before {
+            content: "";
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            left: 50%;
+            top: -10px;
+            transform: translateX(-50%);
+            opacity: 0.7;
+        }
+
+        .nav-link[href$="news.html"]::before {
+            background-image: url('../img/news-icon.png');
+        }
+
+        .nav-link[href$="china.html"]::before {
+            background-image: url('../img/china-icon.png');
+        }
+
+        .nav-link[href$="models.html"]::before {
+            background-image: url('../img/models-icon.png');
+        }
+
+        .nav-link[href$="anti-corruption.html"]::before {
+            background-image: url('../img/anti-icon.png');
+        }
+
+        .nav-link[href$="videos.html"]::before {
+            background-image: url('../img/video-icon.png');
+        }
+
+        .nav-link.active {
+            color: #8b0000;
+            border-bottom: 2px solid #8b0000;
+        }
+
+        .anti-container {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .anti-tab {
+            border-bottom: 5px solid #dee2e6;
+        }
+
+        .anti-tab .nav-link {
+            color: #495057;
+            font-weight: 500;
+            border: none;
+        }
+
+        .anti-tab .nav-link.active {
+            color: #1a5fb4;
+            border-bottom: 5px solid #1a5fb4;
+            background: transparent;
+        }
+
+        .anti-content {
+            margin-top: 20px;
+        }
+
+        .case-card {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .case-title {
+            color: #1a5fb4;
+            border-left: 3px solid #1a5fb4;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 合并后的头部区域 -->
+    <div class="header">
+        <div class="container position-relative" style="height: 400px;">
+            <!-- 中间标语 -->
+            <div class="position-absolute top-50 start-50 translate-middle text-center">
+                <h2 class="display-4">弘扬廉洁文化 建设清廉社会</h2>
+                <p class="lead">传承清廉美德，营造风清气正的社会环境</p>
+            </div>
+
+            <!-- 底部导航图标 -->
+            <nav class="navbar navbar-expand-lg position-absolute bottom-0 start-0 end-0">
+                <div class="container justify-content-center">
+                    <ul class="navbar-nav flex-row">
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-white" href="index.html">
+                                <div>首页</div>
+                            </a>
+                        </li>
+                        <li class="nav-divider mx-1">
+                            <span class="text-white">|</span>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-white" href="news.html">
+                                <div>清廉头条</div>
+                            </a>
+                        </li>
+                        <li class="nav-divider mx-1">
+                            <span class="text-white">|</span>
+
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-white" href="index.html">
+                                <div>清廉山东</div>
+                            </a>
+                        </li>
+                        <li class="nav-divider mx-1">
+                            <span class="text-white">|</span>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-white" href="models.html">
+                                <div>清廉典范</div>
+                            </a>
+                        </li>
+                        <li class="nav-divider mx-1">
+                            <span class="text-white">|</span>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-white" href="anti-corruption.html">
+                                <div>反腐快讯</div>
+                            </a>
+                        </li>
+                        <li class="nav-divider mx-1">
+                            <span class="text-white">|</span>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-white" href="index.html">
+                                <div>清廉视频</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- 主要内容 -->
+    <div class="container my-5">
+        <div class="anti-container">
+            <ul class="nav anti-tab">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">案例通报</a>
+                </li>
+            </ul>
+
+            <div class="anti-content">
+                <div class="case-card">
+                    <h3 class="case-title">原邹城市技工学校党支部书记、五级职员田慎华严重违纪违法被开除党籍</h3>
+                    <p class="news-date">2025-07-23</p>
+                    <p>经查，田慎华理想信念坍塌，党性原则丧失，对党不忠诚不老实，对抗组织审查；无视中央八项规定精神，廉洁底线失守...</p>
+                    <a href="fanfu1.html" class="btn btn-sm btn-outline-primary">查看详情</a>
+                </div>
+                <div class="case-card">
+                    <h3 class="case-title">邹城市政府原党组成员、副市长蔡庆华严重违纪违法被开除党籍和公职</h3>
+                    <p class="news-date">2025-07-23</p>
+                    <p>经查，蔡庆华丧失理想信念，背弃初心使命，无视中央八项规定精神，廉洁底线失守，违规收受礼品、礼金、消费卡；以权谋私...</p>
+                    <a href="fanfu2.html" class="btn btn-sm btn-outline-primary">查看详情</a>
+                </div>
+                <div class="case-card">
+                    <h3 class="case-title">济南市人民政府原参事岳隆杰严重违纪违法被开除党籍和公职</h3>
+                    <p class="news-date">2025-07-21</p>
+                    <p>经查，岳隆杰丧失理想信念，背离初心使命，在任市属金融企业“一把手”期间，落实党中央决策部署不坚决、打折扣，违规插手信贷项目，违法发放贷款...</p>
+                    <a href="fanfu3.html" class="btn btn-sm btn-outline-primary">查看详情</a>
+                </div>
+                <div class="case-card">
+                    <h3 class="case-title">济南城市发展集团有限公司原党委书记、董事长吴力严重违纪违法被开除党籍和公职</h3>
+                    <p class="news-date">2025-07-18</p>
+                    <p>经查，吴力背离党的理想信念，无视中央八项规定精神，违规收受可能影响公正执行公务的礼品、礼金及消费卡，违规接受宴请；违反组织纪律，瞒报个人房产...</p>
+                    <a href="fanfu4.html" class="btn btn-sm btn-outline-primary">查看详情</a>
+                </div>
+                <div class="case-card">
+                    <h3 class="case-title">原烟台市轨道交通集团有限公司党委书记董事长宋吉良严重违纪违法被开除党籍</h3>
+                    <p class="news-date">2025-07-16</p>
+                    <p>经查，宋吉良丧失理想信念，背弃初心使命，对党不忠诚不老实，对抗组织审查；无视中央八项规定精神，违规收受礼品、消费卡...</p>
+                    <a href="fanfu5.html" class="btn btn-sm btn-outline-primary">查看详情</a>
+                </div>
+                <div class="case-card">
+                    <h3 class="case-title">国家口岸管理办公室原常务副主任宋立强严重违纪违法被开除党籍</h3>
+                    <p class="news-date">2025-07-03</p>
+                    <p>经查，宋立强丧失理想信念，背弃初心使命，违反中央八项规定精神，违规占用公有住房；隐瞒不报个人有关事项，在职务晋升方面为他人谋取利益并收受财物...</p>
+                    <a href="fanfu6.html" class="btn btn-sm btn-outline-primary">查看详情</a>
+                </div>
+
+                <!-- 分页 -->
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center mt-4">
+                        <li class="page-item disabled mx-1">
+                            <a class="page-link" href="#" tabindex="-1">上一页</a>
+                        </li>
+                        <li class="page-item active mx-1"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item mx-1"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item mx-1"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item mx-1">
+                            <a class="page-link" href="#">下一页</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <!-- 同首页页脚 -->
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
