@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>青岛廉洁文化 - 廉洁文化网</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .fullscreen-image {
+            background: url('../img/qingdao.jpg') no-repeat center center;
+            background-size: cover;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+
+        .theme-button {
+            position: absolute;
+            left: 11.5%;
+            top: 56%;
+            transform: translateY(-50%);
+            z-index: 100;
+            background: transparent;
+            color: transparent;
+            padding: 8px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            border: none;
+            width: 13%;
+            height: 5%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 1000px;
+            height: 80vh;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            display: none;
+            padding: 20px;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .modal-content {
+            height: calc(80vh - 100px);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fullscreen-image">
+        <a href="index.html" class="back-button btn btn-outline-light">
+            <i class="bi bi-arrow-left"></i> 返回首页
+        </a>
+        <div class="theme-button" onclick="showModal()">
+            主题线路
+        </div>
+    </div>
+
+    <div class="modal-container" id="modalContainer">
+        <div class="modal-header">
+            <div class="modal-title">主题线路</div>
+            <button class="close-btn" onclick="hideModal()">×</button>
+        </div>
+        <div class="modal-content" id="modalContent"></div>
+    </div>
+
+    <script>
+        function showModal() {
+            const container = document.getElementById('modalContainer');
+            const content = document.getElementById('modalContent');
+            container.style.display = 'block';
+            content.style.backgroundImage = "url('../img/qingdao1.jpg')";
+        }
+
+        function hideModal() {
+            document.getElementById('modalContainer').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
